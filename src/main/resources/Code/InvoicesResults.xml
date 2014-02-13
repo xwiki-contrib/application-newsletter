@@ -26,23 +26,24 @@
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>Code.WebHome</parent>
+  <parent/>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1392299318000</creationDate>
-  <date>1392299706000</date>
-  <contentUpdateDate>1392299706000</contentUpdateDate>
+  <creationDate>1316995200000</creationDate>
+  <date>1357312036000</date>
+  <contentUpdateDate>1357312036000</contentUpdateDate>
   <version>1.1</version>
   <title>IvoicesResults</title>
+  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
-  <hidden>false</hidden>
-  <content>{{include document="XWiki.LiveTableResultsMacros"/}}
+  <hidden>true</hidden>
+  <content>{{include document="XWiki.LiveTableResultsMacros" /}}
 
 {{velocity wiki="false"}}
 #set($extra = "")

@@ -1,125 +1,146 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
 <xwikidoc version="1.1">
   <web>Code</web>
   <name>Translations</name>
   <language>en</language>
-  <defaultLanguage>fr</defaultLanguage>
+  <defaultLanguage>en</defaultLanguage>
   <translation>1</translation>
-  <creator>XWiki.Admin</creator>
+  <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1392273015000</creationDate>
-  <author>XWiki.Admin</author>
-  <contentAuthor>XWiki.Admin</contentAuthor>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1392278285000</date>
   <contentUpdateDate>1392278285000</contentUpdateDate>
-  <version>2.1</version>
+  <version>1.1</version>
   <title>Translations</title>
-  <comment>translated to English</comment>
+  <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>true</hidden>
-  <content>xe.livetable.filters.tip=Type here to search...&#xd;
-&#xd;
-## newsletter &amp; action bar ##&#xd;
-main.newslettersubscribe.title=Subscribe to newsletters&#xd;
-main.newslettersubscribe.submit=Register&#xd;
-main.newslettersubscribe.emaillabel=E-mail address...&#xd;
-newsletter.subscribe.actionbar.newsletter=Subscribe to newsletter (free)&#xd;
-newsletter.subscribe.actionbar.newslettersubscribe=Subscribe to the Wiki newsletter&#xd;
-newslettersubscribe.title=Subscribe to the newsletter&#xd;
-newslettersubscribe.submit=Register&#xd;
-actionbar.fontsizeplus=Increase font size&#xd;
-actionbar.fontsizeminus=Decrease font size&#xd;
-actionbar.print=Print this page&#xd;
-actionbar.emailshare=Share by email&#xd;
-actionbar.contactus=Contact Us&#xd;
-&#xd;
-## Newsletter ##&#xd;
-newsletter.subscribe.result.alreadyexists=This e-mail address has already been registered.&#xd;
-newsletter.subscribe.result.added=Thank you for signing up to the newsletter.&#xd;
-newsletter.subscribe.error.notvalidmail=The entered address is invalid. Please try again.&#xd;
-newsletter.subscribe.back=Return to the previous page&#xd;
-newsletter.subscribe.backToReferer=Return to the previous page : {0}&#xd;
-&#xd;
-##Newsletter##&#xd;
-newsletter.elements.title=Newsletter Elements&#xd;
-newsletter.elements.add=Create a new element&#xd;
-newsletter.elements.list=Elements already created&#xd;
-newsletter.elements.livetable.sectionName=Element&#xd;
-newsletter.elements.livetable._actions=Actions&#xd;
-newsletter.elements.sectionName=Element Name&#xd;
-newsletter.model.title=Newsletter Templates&#xd;
-newsletter.model.add=Create a new template&#xd;
-newsletter.template.list=Templates already created&#xd;
-newsletter.template.livetable.doc.title=Template&#xd;
-newsletter.template.livetable._isUsed=Is the template related to a newsletter ?&#xd;
-newsletter.model.notused=No&#xd;
-newsletter.model.used=Yes&#xd;
-newsletter.template.livetable._actions=Actions&#xd;
-newsletter.model.elements=Select the elements you wish to see in the template&#xd;
-newsletter.model._isUsed=Is the template related to a newsletter ?&#xd;
-newsletter.title=Newsletters&#xd;
-newsletter.add=Create a new newsletter&#xd;
-newsletter.list=Newsletters already created&#xd;
-newsletter.livetable.doc.title=Newsletter&#xd;
-newsletter.livetable._latestInvoice=Latest Post&#xd;
-newsletter.livetable._actions=Actions&#xd;
-econnaissances.lettreinformationmodeles.add.error.alreadyexists=This template already exists. Please create a new one.&#xd;
-newsletter.description=Description&#xd;
-newsletter.disclaimer=Legal Notices&#xd;
-newsletter.model=Used Template&#xd;
-newsletter.notInvoiced=No shipments to date&#xd;
-newsletter.frequency=Sending Frequency&#xd;
-newsletter.subscribe=Subscribe to Newsletter&#xd;
-newsletter.unsubscribe=Unsubscribe from Newsletter&#xd;
-newsletter.invoices=Newsletters Archive&#xd;
-newsletter.createInstance=Create an instance&#xd;
-newsletter.published=Publish&#xd;
-newsletter.elements.sectionContent=Element content&#xd;
-newsletter.attachHeaderAndFooter=Please attach the following image to the newsletter: entete.png (dimensions: 1654 * 316px) and pieddepage.png (if needed)&#xd;
-Code.NewsletterClass_frequency_unspecified=Unspecified&#xd;
-Code.NewsletterClass_frequency_weekly=Weekly&#xd;
-Code.NewsletterClass_frequency_monthly=Monthly&#xd;
-Code.NewsletterClass_frequency_quarterly=Quarterly&#xd;
-Code.NewsletterClass_frequency_ondemand=On demand&#xd;
-newsletter.agendaElement=Agenda&#xd;
-newsletter.disclaimerElement=Legal Notices&#xd;
-newsletter.totalNumber=Number of subscribers today&#xd;
-newsletter.subscriptionsBefore=Number of subscribers during the last shipment&#xd;
-newsletter.subscriptionsAfter=Subscriptions since the last shipment&#xd;
-newsletter.unsubscriptionsAfter=Canceled Subscriptions since the last shipment&#xd;
-newsletter.addElement=Add the element to the template&#xd;
-econnaissances.lettreinformation.add.error.alreadyexists=This newsletter already exists. Please enter a new name.&#xd;
-newsletter.drag=Drag this element to assign it a position&#xd;
-newsletter.modelName=Template Name&#xd;
-elements.elementName=Element Name&#xd;
-newsletter.livetable._subscriptionActions=Actions&#xd;
-econnaissances.lettreinformationelements.add.error.alreadyexists=This element already exists&#xd;
-econnaissances.lettreinformationelements.add.error.norights=You are not allowed to perform this action&#xd;
-core.editors.class.addElement.done=The element has been added&#xd;
-core.editors.class.addElement.failed=The element could not be added. Please try again later then contact an administrator if the problem persists.&#xd;
-profile.category.newslettter=My Subscriptions&#xd;
-newsletter.notavailable=This document is currently unavailable. Please try again later.&#xd;
-newsletter.instance.list=Newsletter Instances&#xd;
-newsletter.model.livetable.doc.title=Newsletter Instance&#xd;
-newsletter.model.livetable.doc.creationDate=Creation&#xd;
-newsletter.model.livetable.doc.date=Last modification&#xd;
-newsletter.model.livetable._actions=Actions&#xd;
-profile.newsletter.sectionTitle=Newsletters to which you can subscribe&#xd;
-profile.newsletter.description=Please find below the list of newsletters to which you subscribed by registering on the Wiki. You can not receive them until after you have validated your account.&#xd;
-profile.updateSubscriptions=Subscribe to newsletters&#xd;
-newsletter.instanceTitle={0} No. {1}&#xd;
-newsletter.managementLink=Manage your newsletters subscriptions&#xd;
-newsletter.dateAndRegion=From {0} to {1}, in {2} ({3})&#xd;
-core.register.emailAlreadyExists=An account already exists associated with this e-mail. Please Login&#xd;
-core.register.homepageEmailAlreadyExists=Please login and visit your profile&#xd;
-newsletter.instanceDescription=Description&#xd;
-newsletter.invoices.invoiceDate=Sending Date&#xd;
-newsletter.invoices.doc.title=Newsletter name and number&#xd;
-newsletter.invoices.emptyvalue=Newsletter was not sent to date&#xd;
-newsletter.livetable.emptyvalue=&#xd;
-newsletter.elements.livetable.emptyvalue=&#xd;
-newsletter.create=Add&#xd;
-&#xd;
-createform.create=Create&#xd;
+  <content>xe.livetable.filters.tip=Type here to search...
+
+## newsletter &amp; action bar ##
+main.newslettersubscribe.title=Subscribe to newsletters
+main.newslettersubscribe.submit=Register
+main.newslettersubscribe.emaillabel=E-mail address...
+newsletter.subscribe.actionbar.newsletter=Subscribe to newsletter (free)
+newsletter.subscribe.actionbar.newslettersubscribe=Subscribe to the Wiki newsletter
+newslettersubscribe.title=Subscribe to the newsletter
+newslettersubscribe.submit=Register
+actionbar.fontsizeplus=Increase font size
+actionbar.fontsizeminus=Decrease font size
+actionbar.print=Print this page
+actionbar.emailshare=Share by email
+actionbar.contactus=Contact Us
+
+## Newsletter ##
+newsletter.subscribe.result.alreadyexists=This e-mail address has already been registered.
+newsletter.subscribe.result.added=Thank you for signing up to the newsletter.
+newsletter.subscribe.error.notvalidmail=The entered address is invalid. Please try again.
+newsletter.subscribe.back=Return to the previous page
+newsletter.subscribe.backToReferer=Return to the previous page : {0}
+
+##Newsletter##
+newsletter.elements.title=Newsletter Elements
+newsletter.elements.add=Create a new element
+newsletter.elements.list=Elements already created
+newsletter.elements.livetable.sectionName=Element
+newsletter.elements.livetable._actions=Actions
+newsletter.elements.sectionName=Element Name
+newsletter.model.title=Newsletter Templates
+newsletter.model.add=Create a new template
+newsletter.template.list=Templates already created
+newsletter.template.livetable.doc.title=Template
+newsletter.template.livetable._isUsed=Is the template related to a newsletter ?
+newsletter.model.notused=No
+newsletter.model.used=Yes
+newsletter.template.livetable._actions=Actions
+newsletter.model.elements=Select the elements you wish to see in the template
+newsletter.model._isUsed=Is the template related to a newsletter ?
+newsletter.title=Newsletters
+newsletter.add=Create a new newsletter
+newsletter.list=Newsletters already created
+newsletter.livetable.doc.title=Newsletter
+newsletter.livetable._latestInvoice=Latest Post
+newsletter.livetable._actions=Actions
+econnaissances.lettreinformationmodeles.add.error.alreadyexists=This template already exists. Please create a new one.
+newsletter.description=Description
+newsletter.disclaimer=Legal Notices
+newsletter.model=Used Template
+newsletter.notInvoiced=No shipments to date
+newsletter.frequency=Sending Frequency
+newsletter.subscribe=Subscribe to Newsletter
+newsletter.unsubscribe=Unsubscribe from Newsletter
+newsletter.invoices=Newsletters Archive
+newsletter.createInstance=Create an instance
+newsletter.published=Publish
+newsletter.elements.sectionContent=Element content
+newsletter.attachHeaderAndFooter=Please attach the following image to the newsletter: entete.png (dimensions: 1654 * 316px) and pieddepage.png (if needed)
+Code.NewsletterClass_frequency_unspecified=Unspecified
+Code.NewsletterClass_frequency_weekly=Weekly
+Code.NewsletterClass_frequency_monthly=Monthly
+Code.NewsletterClass_frequency_quarterly=Quarterly
+Code.NewsletterClass_frequency_ondemand=On demand
+newsletter.agendaElement=Agenda
+newsletter.disclaimerElement=Legal Notices
+newsletter.totalNumber=Number of subscribers today
+newsletter.subscriptionsBefore=Number of subscribers during the last shipment
+newsletter.subscriptionsAfter=Subscriptions since the last shipment
+newsletter.unsubscriptionsAfter=Canceled Subscriptions since the last shipment
+newsletter.addElement=Add the element to the template
+econnaissances.lettreinformation.add.error.alreadyexists=This newsletter already exists. Please enter a new name.
+newsletter.drag=Drag this element to assign it a position
+newsletter.modelName=Template Name
+elements.elementName=Element Name
+newsletter.livetable._subscriptionActions=Actions
+econnaissances.lettreinformationelements.add.error.alreadyexists=This element already exists
+econnaissances.lettreinformationelements.add.error.norights=You are not allowed to perform this action
+core.editors.class.addElement.done=The element has been added
+core.editors.class.addElement.failed=The element could not be added. Please try again later then contact an administrator if the problem persists.
+profile.category.newslettter=My Subscriptions
+newsletter.notavailable=This document is currently unavailable. Please try again later.
+newsletter.instance.list=Newsletter Instances
+newsletter.model.livetable.doc.title=Newsletter Instance
+newsletter.model.livetable.doc.creationDate=Creation
+newsletter.model.livetable.doc.date=Last modification
+newsletter.model.livetable._actions=Actions
+profile.newsletter.sectionTitle=Newsletters to which you can subscribe
+profile.newsletter.description=Please find below the list of newsletters to which you subscribed by registering on the Wiki. You can not receive them until after you have validated your account.
+profile.updateSubscriptions=Subscribe to newsletters
+newsletter.instanceTitle={0} No. {1}
+newsletter.managementLink=Manage your newsletters subscriptions
+newsletter.dateAndRegion=From {0} to {1}, in {2} ({3})
+core.register.emailAlreadyExists=An account already exists associated with this e-mail. Please Login
+core.register.homepageEmailAlreadyExists=Please login and visit your profile
+newsletter.instanceDescription=Description
+newsletter.invoices.invoiceDate=Sending Date
+newsletter.invoices.doc.title=Newsletter name and number
+newsletter.invoices.emptyvalue=Newsletter was not sent to date
+newsletter.livetable.emptyvalue=
+newsletter.elements.livetable.emptyvalue=
+newsletter.create=Add
+
+createform.create=Create
 createform.info.noinline=The form should only be used inline.</content>
 </xwikidoc>

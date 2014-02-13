@@ -31,17 +31,18 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1392299316000</creationDate>
-  <date>1392299316000</date>
-  <contentUpdateDate>1392299316000</contentUpdateDate>
+  <creationDate>1316995200000</creationDate>
+  <date>1357314182000</date>
+  <contentUpdateDate>1357314182000</contentUpdateDate>
   <version>1.1</version>
   <title>NewsletterClass Template</title>
+  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
-  <hidden>false</hidden>
+  <hidden>true</hidden>
   <object>
     <class>
       <name>Code.NewsletterClass</name>
