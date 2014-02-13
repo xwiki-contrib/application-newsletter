@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>LettreInformation</web>
+  <name>CreateNewsletterInstance</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>LettreInformation.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299318000</creationDate>
+  <date>1392299895000</date>
+  <contentUpdateDate>1392299318000</contentUpdateDate>
+  <version>1.1</version>
+  <title>CreateNewsletterInstance</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}
+#if("$!request.newsletter" != '')
+  ## create newsletter instance pages based on the model used by the newsletter
+  #set($newsletterDoc = $xwiki.getDocument($!request.newsletter))
+  ## get the template for the newsletter
+  #set($instanceName = $xwiki.getUniquePageName("LettreInformationInstances", $newsletterDoc.name))
+  #set($instanceDoc = $xwiki.getDocument("LettreInformationInstances.${instanceName}"))
+  #set($modelName = $escapetool.url($newsletterDoc.getObject('Code.NewsletterClass').getProperty('model').value))
+  ## generate the newsletter number used on the title
+  #set($newsletterID = $xwiki.countDocuments(", BaseObject obj where obj.name=doc.fullName and obj.className='Code.NewsletterInstanceClass' and doc.parent='$!request.newsletter'") + 1)
+  #set($newsletterTitle = $escapetool.url($msg.get('newsletter.instanceTitle', [$newsletterDoc.getDisplayTitle(), $!{newsletterID}])))
+  #if("$!modelName" != "")
+    #set($frequency = $escapetool.url($newsletterDoc.getObject('Code.NewsletterClass').getProperty('frequency').value))
+    #set($newsletterTemplate = $escapetool.url(${newsletterDoc.fullName}))
+    $response.sendRedirect($xwiki.getURL("LettreInformationInstances.${instanceName}", 'inline', 
+"template=$!{modelName}&amp;Code.NewsletterClass_0_frequency=$!frequency&amp;parent=$!newsletterTemplate&amp;title=$!newsletterTitle"))
+  #else
+    $response.sendRedirect($xwiki.getURL($!request.newsletter, 'view', 'error=modelmissing'))
+  #end
+#end
+{{/velocity}}</content>
+</xwikidoc>

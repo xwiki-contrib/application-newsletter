@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>Code</web>
+  <name>AddElement</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Code.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299317000</creationDate>
+  <date>1392299651000</date>
+  <contentUpdateDate>1392299317000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}
+#**
+ * Create/update documents to add an element object (on element or model pages).
+ *#
+#if("$!request.xpage" == 'plain' &amp;&amp; "$!request.create" != '' &amp;&amp; ${services.csrf.isTokenValid("$!{request.getParameter('form_token')}")})
+  #if("$!request.modelName" != '')
+    ## add elements to model pages
+    #set($spaceName = 'LettreInformationModeles')
+    #set($targetDocName = $!{request.modelName})
+    #set($targetDocRef = $services.model.createDocumentReference($xcontext.getDatabase(), $spaceName, $targetDocName))
+    #set($targetDocFullName = $services.model.serialize($targetDocRef))
+    #set($agendaElement = $msg.get('newsletter.agendaElement'))
+    #set($disclaimerElement = $msg.get('newsletter.disclaimerElement'))
+    #set($targetDocTitle = $!request.modelName)
+    #set($targetContent = "{{include document='Code.NewsletterModelSheet'/}}")
+    #set($xredirect = $xwiki.getURL($targetDocFullName, 'inline'))
+  #else
+    ## create element pages
+    #set($spaceName = 'LettreInformationElements')
+    #set($targetDocName = $!{request.elementName})
+    #set($targetDocRef = $services.model.createDocumentReference($xcontext.getDatabase(), $spaceName, $targetDocName))
+    #set($targetDocFullName = $services.model.serialize($targetDocRef))
+    #set($elementValue = $!{request.elementName})
+    #set($targetDocTitle = $!{request.elementName})
+    #set($targetContent = "{{include document='Code.ElementsSheet'/}}")
+    #set($xredirect = $xwiki.getURL("${spaceName}.WebHome", 'view'))
+  #end
+  #if("$!targetDocFullName" != '' &amp;&amp; $xwiki.exists($targetDocFullName))
+    #if("$!request.ajax" == "")
+      #set($homepageDocRef  = $services.model.createDocumentReference($xcontext.getDatabase(), $spaceName, 'WebHome')))
+      $response.sendRedirect($xwiki.getURL($homepageDocRef, 'view', 'error=alreadyexists'))
+    #else
+      {{html clean=false}}
+      &lt;span id="add-error"&gt;$msg.get('econnaissances.lettreinformationelements.add.error.alreadyexists')&lt;/span&gt;
+    #end
+  #elseif(!$xwiki.hasAccessLevel('edit', $context.user, $targetDocFullName))
+    #if("$!request.ajax" == "")
+      #set($homepageDocRef  = $services.model.createDocumentReference($xcontext.getDatabase(), $spaceName, 'WebHome')))
+      $response.sendRedirect($xwiki.getURL($homepageDocRef, 'view', 'error=norights'))
+    #else
+      &lt;span id="add-error"&gt;$msg.get('econnaissances.lettreinformationelements.add.error.norights')&lt;/span&gt;
+    #end
+  #else
+    #set($targetDoc = $xwiki.getDocument($targetDocRef))
+    #if("$!request.modelName" != '')
+      #set($instanceObj = $targetDoc.newObject('Code.NewsletterInstanceClass'))
+      ## add elements to model pages
+      #set($agendaObj = $targetDoc.newObject('Code.ElementsClass'))
+      #set($discard = $agendaObj.set('sectionName', $agendaElement))
+      ## the empty property value is used to search for all documents that have not been invoiced yet
+      #set($discard = $agendaObj.set('invoiceDate', $util.getNull()))
+      #set($disclaimerObj = $targetDoc.newObject('Code.ElementsClass'))
+      #set($discard = $disclaimerObj.set('sectionName', $disclaimerElement))
+      #set($discard = $disclaimerObj.set('invoiceDate', $util.getNull()))
+    #else
+      ## add elements to model pages
+      #set($elementObj = $targetDoc.newObject('Code.ElementsClass'))
+      #set($discard = $elementObj.set('sectionName', $elementValue))
+      ## the empty property value is used to search for all documents that have not been invoiced yet
+      #set($discard = $elementObj.set('invoiceDate', $util.getNull()))
+    #end
+    #set($parentReference = $services.model.createDocumentReference($xcontext.getDatabase(), $spaceName, 'WebHome'))
+    #set($parentDocName = $services.model.serialize($parentReference))
+    $targetDoc.setParent($parentDocName)
+    $targetDoc.setTitle($targetDocTitle)
+    $targetDoc.setContent($targetContent)
+    $targetDoc.save()
+    #if("$!request.ajax" == "")
+      $response.sendRedirect($xredirect)
+    #end
+  #end
+#elseif("$!request.xpage" == 'plain' &amp;&amp; "$!request.modelName" != '' &amp;&amp; "$!request.addElement" != '' &amp;&amp; ${services.csrf.isTokenValid("$!{request.getParameter('form_token')}")})
+  #set($modelName = $!request.modelName)
+  #if ($!xwiki.hasAccessLevel('edit', $context.user, $modelName))
+    #set($elementName = $!request.addElement)
+    #set($elementDoc = $xwiki.getDocument($elementName))
+    #set($modelDoc = $xwiki.getDocument($!request.modelName))
+    #set($elementObj = $modelDoc.newObject('Code.ElementsClass'))
+    $elementObj.set('sectionName', $elementDoc.get('sectionName'))##
+    ## update display order : max display order + 1
+    #set($elementsObj = $modelDoc.getObjects('Code.ElementsClass'))
+    #set($maxValue = 0)
+    #foreach($elemObj in $elementsObj)
+      #set($displayOrder = $elemObj.getProperty('displayOrder').value)
+      #if($!displayOrder == '')
+        #set($displayOrder = 0)
+      #end
+      #if($maxValue &lt; $displayOrder)
+        #set($maxValue = $displayOrder)
+      #end
+    #end
+    #if($maxValue &gt;= 0)
+      #set($maxValue = $maxValue + 1)
+    #end
+    $!elementObj.set('displayOrder', $maxValue)##
+    {{html clean=false}}
+    &lt;div id="xproperty_${maxValue}" class="xproperty" style="position: relative;"&gt;
+      &lt;div class="xproperty-title"&gt;
+        &lt;div class="hidden xproperty-number"&gt;
+          &lt;input type="text" name="Code.ElementsClass_${elementObj.number}_displayOrder" value="$maxValue" id="Code.ElementsClass_${elementObj.number}_displayOrder" size="30"&gt;
+        &lt;/div&gt;
+        &lt;div class="article-field" style="width: 95%"&gt; &lt;h3&gt;$elementObj.getProperty('sectionName').value&lt;/h3&gt;&lt;/div&gt;
+        &lt;div style="position: relative; margin-top: -28px;" class="tools propertyTools"&gt;
+          &lt;a href="$modelDoc.getURL('objectremove', "form_token=$!{services.csrf.getToken()}&amp;classname=Code.ElementsClass&amp;classid=${elementObj.number}&amp;xredirect=$escapetool.url($modelDoc.getURL('inline'))")" title="$msg.get('core.editors.object.removeObject.tooltip')"&gt;
+            &lt;img src="$xwiki.getSkinFile('icons/silk/cross.gif')"/&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {{/html}}
+    $modelDoc.save()
+  #end
+#elseif(!${services.csrf.isTokenValid("$!{request.getParameter('form_token')}")})
+invalid token
+#end
+{{/velocity}}</content>
+</xwikidoc>

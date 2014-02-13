@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>LettreInformationElements</web>
+  <name>Disclaimer</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Code.ElementsClass</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299319000</creationDate>
+  <date>1392299319000</date>
+  <contentUpdateDate>1392299319000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>Code.ElementsClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <displayOrder>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>displayOrder</name>
+        <number>3</number>
+        <numberType>integer</numberType>
+        <prettyName>displayOrder</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.NumberClass</classType>
+      </displayOrder>
+      <sectionContent>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <editor>---</editor>
+        <name>sectionContent</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>sectionContent</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </sectionContent>
+      <sectionName>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sectionName</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>sectionName</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sectionName>
+    </class>
+    <name>LettreInformationElements.Disclaimer</name>
+    <number>0</number>
+    <className>Code.ElementsClass</className>
+    <guid>1fa51b63-7504-4df0-8c05-e9aa24f8f876</guid>
+    <property>
+      <displayOrder/>
+    </property>
+    <property>
+      <sectionContent/>
+    </property>
+    <property>
+      <sectionName>Mentions légales</sectionName>
+    </property>
+  </object>
+  <object>
+    <class>
+      <name>Code.NewsletterInstanceClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <description>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <editor>Text</editor>
+        <name>description</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>description</prettyName>
+        <rows>5</rows>
+        <size>80</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </description>
+      <invoiceDate>
+        <customDisplay/>
+        <dateFormat>dd/MM/yyyy</dateFormat>
+        <disabled>0</disabled>
+        <emptyIsToday>0</emptyIsToday>
+        <name>invoiceDate</name>
+        <number>3</number>
+        <picker>1</picker>
+        <prettyName>invoiceDate</prettyName>
+        <size>20</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.DateClass</classType>
+      </invoiceDate>
+      <published>
+        <customDisplay/>
+        <defaultValue/>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType/>
+        <name>published</name>
+        <number>1</number>
+        <prettyName>published</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </published>
+    </class>
+    <name>LettreInformationElements.Disclaimer</name>
+    <number>0</number>
+    <className>Code.NewsletterInstanceClass</className>
+    <guid>92c13890-8d60-4e7b-92b7-1266126b5611</guid>
+    <property>
+      <description/>
+    </property>
+    <property>
+      <invoiceDate/>
+    </property>
+    <property>
+      <published>1</published>
+    </property>
+  </object>
+  <content>{{include document='Code.ElementsSheet'/}}</content>
+</xwikidoc>

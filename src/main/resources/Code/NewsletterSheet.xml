@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>Code</web>
+  <name>NewsletterSheet</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Code.NewsletterClass</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299316000</creationDate>
+  <date>1392299316000</date>
+  <contentUpdateDate>1392299316000</contentUpdateDate>
+  <version>1.1</version>
+  <title>NewsletterClass Sheet</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.SheetClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <defaultEditMode>
+        <disabled>0</disabled>
+        <name>defaultEditMode</name>
+        <number>1</number>
+        <prettyName>Default Edit Mode</prettyName>
+        <size>15</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </defaultEditMode>
+    </class>
+    <name>Code.NewsletterSheet</name>
+    <number>0</number>
+    <className>XWiki.SheetClass</className>
+    <guid>0a878aff-1913-4b8f-9151-169c9d667f28</guid>
+    <property>
+      <defaultEditMode/>
+    </property>
+  </object>
+  <object>
+    <class>
+      <name>XWiki.StyleSheetExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <name>Code.NewsletterSheet</name>
+    <number>0</number>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>57a54bb1-fd83-4958-a2da-ce888c3ea181</guid>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>#newsletter-actions div {
+  float: right;
+  display: inline-block;
+}
+#newsletter-actions {
+  clear: both;
+  display: inline-block;
+  width: 100%;
+}</code>
+    </property>
+    <property>
+      <name/>
+    </property>
+    <property>
+      <parse/>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <content>{{velocity}}
+  $!xwiki.ssx.use('Code.NewsletterSheet')##
+  ## check if the model is specified
+  #if("$!request.error" == 'modelmissing')
+    {{error}}$msg.get('newsletter.missingmodel'){{/error}}
+  #end
+  #if($context.action == 'view')
+    ## check if the user is already subscribed to this newsletter
+    #set($userProfile = $xwiki.getDocument($context.user))
+    #set($subscriptionObj = $userProfile.getObject('Code.SubscriptionClass', 'newsletter', $doc.fullName))
+    #set($subscribeLabel = 'subscribe')
+    #if($subscriptionObj &amp;&amp; "$!subscriptionObj.getProperty('unsubscriptionDate').value" == '')
+      #set($subscribeLabel = 'unsubscribe')
+    #end
+    (%id="newsletter-actions"%)(((
+      (%class="buttonwrapper"%)((((%class="button"%)[[$msg.get("newsletter.${subscribeLabel}")&gt;&gt;LettreInformation.ManageSubscription?newsletter=$doc.fullName&amp;subscriptionAction=${subscribeLabel}]])))
+      #if($hasAdmin || $xwiki.getUser().isUserInGroup('xwiki:XWiki.LettreInfoGroup'))
+        (%class="buttonwrapper"%)((((%class="button"%)[[$msg.get('newsletter.createInstance')&gt;&gt;LettreInformation.CreateNewsletterInstance?newsletter=$doc.fullName]])))
+      #end
+    )))
+  #end
+  #set($currentUser = $xwiki.getUser($context.user))
+  ; $msg.get('newsletter.description')
+  : $doc.display('description')
+  #if($context.action == 'inline')
+  ; $msg.get('newsletter.disclaimer')
+  : $doc.display('disclaimer')
+  #end
+  #if($currentUser.isUserInGroup('XWiki.XWikiAdminGroup') || $currentUser.isUserInGroup('XWiki.LettreInfoGroup'))
+    ; $msg.get('newsletter.model')
+    : $doc.display('model')
+  #end
+  ; $msg.get('newsletter.frequency')
+  : $doc.display('frequency')
+
+  #if($context.action == 'view')
+    ## Statistics
+    ## total number of subscriptions (count only active users that have not unsubscribed)
+    #set($fromClause = ",BaseObject user, BaseObject obj, StringProperty newsletter, IntegerProperty active")
+    #set($whereClause = "where doc.space='XWiki' and user.className='XWiki.XWikiUsers' and user.name=doc.fullName and obj.className='Code.SubscriptionClass' and obj.name=doc.fullName and newsletter.id.id=obj.id and newsletter.name='newsletter' and newsletter.value='$doc.fullName' and active.id.id=user.id and active.name='active' and active.value='1'")
+    #if($currentUser.isUserInGroup('XWiki.XWikiAdminGroup') || $currentUser.isUserInGroup('XWiki.LettreInfoGroup'))
+      #set($unsubscribeClause = "${fromClause}, DateProperty unsubDate $whereClause and unsubDate.id.id=obj.id.id and unsubDate.name='unsubscriptionDate' and unsubDate.value&lt;&gt;''")
+      ##set($totalNb = $xwiki.countDocuments("$fromClause $whereClause and doc.fullName not in (select doc.fullName from XWikiDocument as doc ${unsubscribeClause})"))
+      ##$msg.get('newsletter.totalNumber'): $totalNb
+    #end
+    ## Get the latest invoiced instances: all newsletter instances with this newsletter as parent
+    #set($invoicesFrom = ", BaseObject obj, DateProperty invoiceDate")
+    #set($invoicesWhere = "where doc.fullName=obj.name and obj.className='Code.NewsletterInstanceClass' and doc.parent='$doc.fullName' and invoiceDate.id.id=obj.id and invoiceDate.name='invoiceDate' and invoiceDate.value&lt;&gt;''")
+    #if($hasAdmin)
+      ##set($invoices = $xwiki.searchDocuments("${invoicesFrom} ${invoicesWhere} order by invoiceDate.value desc", 5, 0))
+    #else
+      ##set($invoices = $xwiki.searchDocuments("${invoicesFrom}, IntegerProperty published ${invoicesWhere} and published.id.id=obj.id and published.name='published' and published.value='1' order by invoiceDate.value desc", 5, 0))
+    #end
+    #if($invoices.size() &gt; 0)
+      #set($latestInvoicedDoc = $invoices.get(0))
+      #set($latestInvoice = $xwiki.getDocument($latestInvoicedDoc).getObject('Code.NewsletterInstanceClass').getProperty('invoiceDate').value)
+      #if("$!latestInvoice" != "" &amp;&amp; $currentUser.isUserInGroup('XWiki.XWikiAdminGroup') || $currentUser.isUserInGroup('XWiki.LettreInfoGroup'))
+        ##
+        ## Subscriptions for the latest invoice
+        #if("$!doc.getObject('Code.NewsletterClass').getProperty('latestInvoicesSent').value" == '')
+          #set($latestInvoicesSent = 0)
+        #else
+          #set($latestInvoicesSent = $!doc.getObject('Code.NewsletterClass').getProperty('latestInvoicesSent').value)
+        #end
+        $msg.get('newsletter.subscriptionsBefore'): $latestInvoicesSent
+        ##
+        ## Subscriptions after the latest invoice : all users that have subscribed to the newsletter 
+        ## after the latest invoice has been sent, but have not unsubscribed
+        ## 
+        #set($unsubscriptionsAfterHql = "${unsubscribeClause} and unsubDate.value &gt;= '$latestInvoice'")
+        ##set($subscriptionsAfter = $xwiki.countDocuments("${fromClause}, DateProperty subscriptionDate $whereClause and subscriptionDate.id.id=obj.id.id and subscriptionDate.name='subscriptionDate' and subscriptionDate.value &gt; '$latestInvoice' and doc.fullName not in (select doc.fullName from XWikiDocument as doc ${unsubscriptionsAfterHql})")) 
+        $msg.get('newsletter.subscriptionsAfter'): $subscriptionsAfter
+        ## Unsubscriptions after the latest invoice
+        ##set($unsubscriptionsAfter = $xwiki.countDocuments(${unsubscriptionsAfterHql}))
+        $msg.get('newsletter.unsubscriptionsAfter'): $unsubscriptionsAfter
+      #end
+      ==$msg.get('newsletter.invoices')==
+      #set($collist = ["invoiceDate", "doc.title"])
+      #set($colprops = {
+                   "doc.title" : { "type" : "text" , "size" : 30, "link" : "view"}, 
+                   "invoiceDate" : { "type" : "date" }
+                 })
+      #set($options = {
+                  "resultPage": 'Code.InvoicesResults',
+                  "translationPrefix" : "newsletter.invoices.",
+                  "extraParams" : "newsletter=$doc.fullName",
+                  "selectedColumn" : "invoiceDate",
+                  "defaultOrder" : "desc",
+                  "rowCount": 15 })
+      #livetable("invoicedocs" $collist $colprops $options)
+    #end
+
+    #if($currentUser.isUserInGroup('XWiki.XWikiAdminGroup'))
+      ##{{info}}$msg.get('newsletter.attachHeaderAndFooter'){{/info}}
+    #end
+  #end
+
+{{/velocity}}</content>
+</xwikidoc>

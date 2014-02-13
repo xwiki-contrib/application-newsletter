@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>LettreInformationElements</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Main.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299319000</creationDate>
+  <date>1392299954000</date>
+  <contentUpdateDate>1392299319000</contentUpdateDate>
+  <version>1.1</version>
+  <title>$msg.get('newsletter.elements.title')</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <name>LettreInformationElements.WebHome</name>
+    <number>0</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>a424b395-bdc6-410a-a20f-2e81307daa52</guid>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>var XWiki = (function(XWiki) {
+  // Start XWiki augmentation.
+  var elements = XWiki.elements = XWiki.elements || {};
+  elements.createElements = Class.create({
+    initialize : function() {
+      this.addElement($('addElement'));
+    },
+    addElement :  function(item) {
+      if (!item) {
+        return;
+      }
+      item._x_form_tokenElt = $$('input[name=form_token]')[0];
+      var token = item._x_form_tokenElt ? item._x_form_tokenElt.value : "";
+      item.observe('click', function(event) {
+        event.stop();
+          var url = "$xwiki.getURL('Code.AddElement', 'get', 'xpage=plain&amp;create=1&amp;ajax=1')";
+          var addElementValue = $('elementName').value;
+          url  = url + "&amp;elementName=" + encodeURIComponent(addElementValue) + "&amp;form_token=" + item._x_form_tokenElt.value;
+          new Ajax.Request(
+            /* Ajax request URL */
+            url,
+            /* Ajax request parameters */
+            {
+              method: 'get',
+              // on success add a new element to the list
+              onSuccess : function(response) {
+                if(response.responseText.match("add-error")) {
+                  item.notification.replace(new XWiki.widgets.Notification(response.responseText, "done"));
+                } else {
+                  // refresh live table
+                  livetable_elements.clearCache();
+                  livetable_elements.showRows(1, livetable_elements.limit);
+                  item.notification.replace(new XWiki.widgets.Notification("$msg.get('core.editors.class.addElement.done')", "done"));
+                }
+              }.bind(this),
+              onCreate : function() {
+                item.disabled = true;
+                item.notification = new XWiki.widgets.Notification("$msg.get('core.editors.object.add.inProgress')", "inprogress");
+              },
+              onComplete : function() {
+                item.disabled = false;
+              },
+              onFailure : function(response) {
+                var failureReason = response.statusText;
+                if (response.statusText == '' /* No response */ || response.status == 12031 /* In IE */) {
+                  failureReason = 'Server not responding';
+                }
+                item.notification.replace(new XWiki.widgets.Notification("$msg.get('core.editors.class.addElement.failed')" + failureReason, "error"));
+              },
+              // IE converts 204 status code into 1223...
+              on1223 : function(response) {
+                response.request.options.onSuccess(response);
+              },
+              // 0 is returned for network failures, except on IE where a strange large number (12031) is returned.
+              on0 : function(response) {
+                response.request.options.onFailure(response);
+              }
+            }
+          ); // end ajax reques
+      });
+    }
+  });
+  function init() {
+    return new elements.createElements();
+  }
+  (XWiki.domIsLoaded &amp;&amp; init()) || document.observe('xwiki:dom:loaded', init);
+
+  // End XWiki augmentation.
+  return XWiki;
+}(XWiki || {}));</code>
+    </property>
+    <property>
+      <name/>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <content>{{velocity}}
+#set($user = $xwiki.getUser($context.user))
+#if($hasAdmin || $user.isUserInGroup('XWiki.LettreInfoGroup'))
+  $!xwiki.jsx.use('LettreInformationElements.WebHome')##
+  = $msg.get('newsletter.elements.add') =
+    ## Print potential error from before
+  #if("$request.error" == 'alreadyexists')
+    {{warning}}$msg.get("lettreinformationelements.add.error.alreadyexists"){{/warning}}
+  #elseif("$request.error" == 'norights')
+    {{warning}}$msg.get("lettreinformationelements.add.error.norights"){{/warning}}
+  #end
+
+  {{html clean=false}}
+    &lt;form action="$xwiki.getURL('Code.AddElement', 'get')" method="get"&gt;
+      &lt;input type="hidden" name="xpage" value="plain"/&gt;
+      &lt;input type="hidden" name="create" value="1"/&gt;
+      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+      &lt;input id="elementName" class="withTip" type="text" name="elementName" value="$escapetool.xml($msg.get('elements.elementName'))"/&gt;
+      &lt;span class="buttonwrapper"&gt;&lt;input id="addElement" class="button" type="submit" name="addElement" value="$msg.get('newsletter.create')"/&gt;&lt;/span&gt;
+    &lt;/form&gt;
+  {{/html}}
+#end
+
+## and the list of existing elements
+== $msg.get('newsletter.elements.list') ==
+#set($columns = ["sectionName", "_actions"])
+#set($columnsProperties = {
+    "sectionName" : {"type" : "text", "link" : "view"},
+    "_actions" : {"actions": ["edit", "delete"]}
+  })
+#set($options = {
+    "className" : "Code.ElementsClass",
+    "selectedColumn" : "doc.date",
+    "defaultOrder" : "desc",
+    "translationPrefix" : "newsletter.elements.livetable.",
+    "extraParams" : "&amp;space=${escapetool.url('LettreInformationElements')}"
+  })
+#livetable("elements" $columns $columnsProperties $options)
+{{/velocity}}</content>
+</xwikidoc>

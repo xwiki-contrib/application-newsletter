@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>Code</web>
+  <name>Translations</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <parent>Code.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1392299316000</creationDate>
+  <date>1392299316000</date>
+  <contentUpdateDate>1392299316000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.TranslationDocumentClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>1</number>
+        <prettyName>Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>GLOBAL|WIKI|USER|ON_DEMAND</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <name>Code.Translations</name>
+    <number>0</number>
+    <className>XWiki.TranslationDocumentClass</className>
+    <guid>a7895f09-5dda-416f-a647-981a10be229c</guid>
+    <property>
+      <scope>WIKI</scope>
+    </property>
+  </object>
+  <content>xe.livetable.filters.tip=Tapez ici pour rechercher...
+
+## newsletter &amp; action bar ##
+main.newslettersubscribe.title=S'abonner aux lettres d'information
+main.newslettersubscribe.submit=S'inscrire
+main.newslettersubscribe.emaillabel=Adresse mèl...
+newsletter.subscribe.actionbar.newsletter=S'abonner à la lettre d'information (gratuit)
+newsletter.subscribe.actionbar.newslettersubscribe=S'abonner à la lettre d'information du WikiTerritorial
+newslettersubscribe.title=Abonnez vous à la lettre d'information
+newslettersubscribe.submit=S'inscrire
+actionbar.fontsizeplus=Augmenter la taille des caractères
+actionbar.fontsizeminus=Diminuer la taille des caractères
+actionbar.print=Imprimer la page
+actionbar.emailshare=Partager par mèl
+actionbar.contactus=Nous contacter
+
+
+## Newsletter ##
+newsletter.subscribe.result.alreadyexists=Cette adresse mèl a été déjà enregistrée.
+newsletter.subscribe.result.added=Merci de vous être inscrit à la lettre d'information.
+newsletter.subscribe.error.notvalidmail=L'adresse saisie n'est pas valide. Veuillez recommencer.
+newsletter.subscribe.back=Retour à la page précédente
+newsletter.subscribe.backToReferer=Retour à la page précédente : {0}
+
+
+##Newsletter##
+newsletter.elements.title=Éléments constitutifs d'une lettre d'information
+newsletter.elements.add=Créer un nouvel élément
+newsletter.elements.list=Éléments déjà créés
+newsletter.elements.livetable.sectionName=Élément
+newsletter.elements.livetable._actions=Actions
+newsletter.elements.sectionName=Nom de l'élément
+newsletter.model.title=Modèles constitutifs d'une lettre d'information
+newsletter.model.add=Créer un nouveau modèle
+newsletter.template.list=Modèles déjà créés
+newsletter.template.livetable.doc.title=Modèle
+newsletter.template.livetable._isUsed=Le modèle est-il lié à une lettre d'information ?
+newsletter.model.notused=Non
+newsletter.model.used=Oui
+newsletter.template.livetable._actions=Actions
+newsletter.model.elements=Sélectionnez les éléments que vous désirez voir dans le modèle
+newsletter.model._isUsed=Le modèle est-il lié à une lettre d'information ?
+newsletter.title=Lettres d'information documentaire
+newsletter.add=Créer une nouvelle lettre d'information
+newsletter.list=Lettres d'information déjà créées
+newsletter.livetable.doc.title=Lettre d'information
+newsletter.livetable._latestInvoice=Dernier envoi
+newsletter.livetable._actions=Actions
+econnaissances.lettreinformationmodeles.add.error.alreadyexists=Ce modèle existe déjà. Veuillez en créer un nouveau.
+newsletter.description=Description
+newsletter.disclaimer=Mentions légales
+newsletter.model=Modèle utilisé
+newsletter.notInvoiced=Aucun envoi à ce jour
+newsletter.frequency=Fréquence d'envoi
+newsletter.subscribe=S'inscrire à la lettre d'information
+newsletter.unsubscribe=Se désinscrire de la lettre d'information
+newsletter.invoices=Archives des lettres d'information
+newsletter.createInstance=Créer une instance
+newsletter.published=Publier
+newsletter.elements.sectionContent=Contenu de l'élément
+newsletter.attachHeaderAndFooter=Veuillez joindre l'image suivante à la lettre d'information : entete.png (dimensions : 1654*316px) et pieddepage.png (si besoin)
+Code.NewsletterClass_frequency_unspecified=Non renseignée
+Code.NewsletterClass_frequency_weekly=Hebdomadaire
+Code.NewsletterClass_frequency_monthly=Mensuelle
+Code.NewsletterClass_frequency_quarterly=Trimestrielle
+Code.NewsletterClass_frequency_ondemand=A la demande
+newsletter.agendaElement=Agenda
+newsletter.disclaimerElement=Mentions légales
+newsletter.totalNumber=Nombre d'abonnés ce jour 
+newsletter.subscriptionsBefore=Nombre d'abonnés lors du dernier envoi 
+newsletter.subscriptionsAfter=Abonnements depuis le dernier envoi 
+newsletter.unsubscriptionsAfter=Désabonnements depuis le dernier envoi
+newsletter.addElement=Ajouter l'élément au modèle
+econnaissances.lettreinformation.add.error.alreadyexists=Cette lettre d'information existe déjà. Veuillez en saisir un nouveau nom.
+newsletter.drag=Déplacer cet élément pour lui donner une position
+newsletter.modelName=Nom du modèle
+elements.elementName=Nom de l'élément
+newsletter.livetable._subscriptionActions=Actions
+econnaissances.lettreinformationelements.add.error.alreadyexists=Cet élément existe déjà
+econnaissances.lettreinformationelements.add.error.norights=Vous n'êtes pas autorisé à effectuer cette action
+core.editors.class.addElement.done=L'élément a été ajouté
+core.editors.class.addElement.failed=Cet élément n'a pas pu être ajouté. Veuillez réessayer plus tard puis contacter un administrateur si le problème persiste.
+profile.category.newslettter=Mes abonnements
+newsletter.notavailable=Ce document est actuellement indisponible. Veuillez réessayer plus tard.
+newsletter.instance.list=Instances de lettres d'information
+newsletter.model.livetable.doc.title=Instance de lettres d'information
+newsletter.model.livetable.doc.creationDate=Création
+newsletter.model.livetable.doc.date=Dernière modification
+newsletter.model.livetable._actions=Actions
+profile.newsletter.sectionTitle=Lettres d'information auxquelles vous pouvez vous abonner
+profile.newsletter.description=Veuillez trouver ci-dessous la liste des lettres d'information auxquelles vous vous êtes abonnés en vous inscrivant sur le WikiTerritorial. Vous ne pourrez les recevoir qu'après avoir validé votre compte.
+profile.updateSubscriptions=S'abonner aux lettres d'information
+newsletter.instanceTitle={0} N° {1}
+newsletter.managementLink=Gérez vos abonnements aux newsletters
+newsletter.dateAndRegion=Du {0} au {1}, en {2} ({3})
+core.register.emailAlreadyExists=Un compte existe déjà avec cet mèl. Veuillez vous connecter
+core.register.homepageEmailAlreadyExists=Veuillez vous connecter et consulter votre profil
+newsletter.instanceDescription=Description mèl
+newsletter.invoices.invoiceDate=Date d'envoi
+newsletter.invoices.doc.title=Nom et numéro de la lettre d'information
+newsletter.invoices.emptyvalue=Lettre d'information non envoyée à ce jour
+newsletter.livetable.emptyvalue=
+newsletter.create=Ajouter
+
+createform.create=Create
+createform.info.noinline=The form should only be used inline.</content>
+</xwikidoc>
