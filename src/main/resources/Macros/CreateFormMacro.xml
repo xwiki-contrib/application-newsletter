@@ -26,23 +26,22 @@
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent/>
+  <parent>NewsletterAdmin.LettreInformation</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1320080468000</creationDate>
-  <date>1357320423000</date>
-  <contentUpdateDate>1357312036000</contentUpdateDate>
+  <creationDate>1392299318000</creationDate>
+  <date>1392300071000</date>
+  <contentUpdateDate>1392300071000</contentUpdateDate>
   <version>1.1</version>
   <title>CreateFormMacro</title>
-  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
-  <hidden>true</hidden>
+  <hidden>false</hidden>
   <object>
     <class>
       <name>XWiki.RequiredRightClass</name>
@@ -542,6 +541,5 @@
       <name>label</name>
     </property>
   </object>
-  <content>{{createform itemtemplate="Blog.BlogPostTemplate" itemspace="Blog" /}}
-</content>
+  <content>{{createform itemtemplate="Blog.BlogPostTemplate" itemspace="Blog"/}}</content>
 </xwikidoc>

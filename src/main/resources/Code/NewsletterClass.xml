@@ -26,23 +26,22 @@
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent/>
+  <parent>Code.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1316995200000</creationDate>
-  <date>1357312035000</date>
-  <contentUpdateDate>1357312035000</contentUpdateDate>
+  <creationDate>1392299316000</creationDate>
+  <date>1392299728000</date>
+  <contentUpdateDate>1392299316000</contentUpdateDate>
   <version>1.1</version>
   <title/>
-  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
-  <hidden>true</hidden>
+  <hidden>false</hidden>
   <class>
     <name>Code.NewsletterClass</name>
     <customClass/>
