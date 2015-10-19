@@ -31,7 +31,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-newsletter</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <name>Newsletter Application</name>
   <packaging>xar</packaging>
   <description>Create newsletters using models and section elements and automatically send them to subscribers</description>
