@@ -220,7 +220,7 @@
       &lt;input type="hidden" name="xpage" value="plain"/&gt;
       &lt;input type="hidden" name="create" value="1"/&gt;
       &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
-      &lt;input id="elementName" class="withTip" type="text" name="elementName" value="$escapetool.xml($msg.get('elements.elementName'))"/&gt;
+      &lt;input id="elementName" type="text" name="elementName" placeholder="$escapetool.xml($msg.get('elements.elementName'))"/&gt;
       &lt;span class="buttonwrapper"&gt;&lt;input id="addElement" class="button" type="submit" name="addElement" value="$msg.get('newsletter.create')"/&gt;&lt;/span&gt;
     &lt;/form&gt;
   {{/html}}
