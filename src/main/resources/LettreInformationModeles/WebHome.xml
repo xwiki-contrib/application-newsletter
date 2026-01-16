@@ -53,7 +53,7 @@
 
   {{html clean=false}}
     &lt;form action="$xwiki.getURL('Code.AddElement', 'get')" method="post"&gt;
-      &lt;input class="withTip" type="text" name="modelName" value="$escapetool.xml($msg.get('newsletter.modelName'))"/&gt;
+      &lt;input type="text" name="modelName" placeholder="$escapetool.xml($msg.get('newsletter.modelName'))"/&gt;
       &lt;input type="hidden" name="xpage" value="plain"/&gt;
       &lt;input type="hidden" name="outputSyntax" value="plain"/&gt;
       &lt;input type="hidden" name="create" value="1"/&gt;
